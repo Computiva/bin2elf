@@ -1,0 +1,5 @@
+#! /bin/bash
+
+filename=`basename "$1" .bin`
+objcopy --add-section .text="$1" /usr/share/bin2elf/empty.o "$filename.o"
+ld --output "$filename" "$filename.o"
